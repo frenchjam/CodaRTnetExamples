@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>RTNetClient</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="generator" content="Doc-O-Matic">
+    <link rel="STYLESHEET" href="default.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="scripts.js"></SCRIPT>
+</head>
+<body class="Element57">
+<div class="Element92">
+<table class="Element92" border="0" bgcolor="#99CCFF" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element92" valign="middle" align="left" width="33%">
+<div class="Element1">
+Codamotion RTNet SDK for C++ and Java</div>
+</td><td class="Element92" valign="middle" align="center" width="34%">
+<div class="Element2">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td><td class="Element92" valign="middle" align="right" width="33%">
+<div class="Element90">
+<a href="codaRTNet.html">Up</a> | <a href="codaRTNet__PacketDecodeADC16.html">Previous</a> | <a href="codaRTNet__RTNetworkPacket.html">Next</a></div>
+</td></tr></table><div class="Element5">
+RTNetClient</div>
+<div class="Element7">
+<a href="codaRTNet.html">codaRTNet C++ Classes</a> | <a href="_codaRTNet__RTNetClient_14_Members.html">Members</a> | <a href="_codaRTNet__RTNetClient_14_Methods.html">Methods</a> | <a href="_codaRTNet__RTNetClient_17_Class_Hierarchy.html">Class Hierarchy</a></div>
+</div>
+<div class="Element58">
+<div class="Element11">
+<div class="Element10">
+Provides the main programming interface for commuication with Codamotion RTNet Server.</div>
+</div>
+<div class="Element14">
+Class Hierarchy</div>
+<div class="Element151">
+<div class="Element150">
+<pre class="Element150"><strong>RTNetClient</strong></pre></div>
+</div>
+<div class="Element101">
+<div class="Element100">
+<pre class="Element100"><strong>class</strong> RTNetClient;</pre></div>
+</div>
+<div class="Element14">
+File</div>
+<div class="Element11">
+<div class="Element10">
+RTNetClient.h</div>
+</div>
+<div class="Element14">
+Description</div>
+<div class="Element11">
+<div class="Element10">
+Use <a href="codaRTNet__RTNetClient__doAutoDiscoverServer@AutoDiscover_.html">doAutoDiscoverServer</a> to discover available servers on the network and <a href="codaRTNet__RTNetClient__connect@unsigned_long@unsigned_short.html">connect</a> to establish a connection. <a href="codaRTNet__RTNetClient__startSystem@DWORD.html">startSystem</a> initialises devices (start mode), and <a href="codaRTNet__RTNetClient__prepareForAcq.html">prepareForAcq</a> prepares devices for acquisition (prepared mode). Attach data streams for receving data by using <a href="codaRTNet__RTNetClient__createDataStream@DataStream_@__WORD.html">createDataStream</a>. When in prepared mode, a single frame of data can be requested from all devices with <a href="codaRTNet__RTNetClient__doSingleShotAcq.html">doSingleShotAcq</a>. To continuously stream data use <a href="codaRTNet__RTNetClient__startAcqContinuous.html">startAcqContinuous</a>. To continously buffer data use startAcqContinousBuffered. Whilst in buffered acquisition mode the most recently acquired frame can be monitored using <a href="codaRTNet__RTNetClient__requestAcqBufferPacket@WORD@DWORD.html">requestAcqBufferPacket</a></div>
+</div>
+<div class="Element214">
+Namespace</div>
+<div class="Element11">
+<div class="Element10">
+<a href="codaRTNet.html">codaRTNet C++ Classes</a></div>
+</div>
+<div class="Element214">
+Members</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element215">
+Methods</div>
+<div class="Element212">
+<table cellspacing="0" cellpadding="3" border="1">
+<tr>
+<td class="Element201" valign="top" width="50%">
+Method</td><td class="Element205" valign="top" width="50%">
+Description</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__RTNetClient.html">RTNetClient</a></td><td class="Element207" valign="top" width="50%">
+Construct a disconnected RTNetClient object.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__RTNetClient@unsigned_long@unsigned_short.html">RTNetClient</a></td><td class="Element207" valign="top" width="50%">
+Construct an RTNetClient object and attempt to <a href="codaRTNet__RTNetClient__connect@unsigned_long@unsigned_short.html">connect</a> to server at specified IP address and port.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__connect@unsigned_long@unsigned_short.html">connect</a></td><td class="Element207" valign="top" width="50%">
+Connect to Codamotion RTNet Server using the specified IP address and port number.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__createDataStream@DataStream_@__WORD.html">createDataStream</a></td><td class="Element207" valign="top" width="50%">
+Create a data stream object for receiving measurement data from the server.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__disconnect.html">disconnect</a></td><td class="Element207" valign="top" width="50%">
+Disconnect from Codamotion RTNet Server.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__isConnected@const.html">isConnected</a></td><td class="Element207" valign="top" width="50%">
+Determine whether currently connected to server.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__doAutoDiscoverServer@AutoDiscover_.html">doAutoDiscoverServer</a></td><td class="Element207" valign="top" width="50%">
+Attempt to find Codamotion Realtime Network servers on the network.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__enumerateDevices@DeviceEnum_.html">enumerateDevices</a></td><td class="Element207" valign="top" width="50%">
+Provide array of all attached devices.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__enumerateHWConfig@HWConfigEnum_.html">enumerateHWConfig</a></td><td class="Element207" valign="top" width="50%">
+Enumerate all available hardware configurations and their corresponding names</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__startSystem@DWORD.html">startSystem</a></td><td class="Element207" valign="top" width="50%">
+Attempt to start the system with a specified hardware configuration.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__stopSystem.html">stopSystem</a></td><td class="Element207" valign="top" width="50%">
+If the system has been started, this will cause it to shut down.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__getDeviceEnable@DWORD@CODANET_HWCONFIG_DEVICEENABLE_.html">getDeviceEnable</a></td><td class="Element207" valign="top" width="50%">
+Retrieve device enable/disable flags for the specified hardware configuration.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__setDeviceOptions@DeviceOptions_.html">setDeviceOptions</a></td><td class="Element207" valign="top" width="50%">
+Set runtime device information or perform runtime device setup operation.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__getDeviceInfo@DeviceInfo_.html">getDeviceInfo</a></td><td class="Element207" valign="top" width="50%">
+Get runtime device information.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__closeDataStream@DataStream_.html">closeDataStream</a></td><td class="Element207" valign="top" width="50%">
+This is closeDataStream, a member of class RTNetClient.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__doSingleShotAcq.html">doSingleShotAcq</a></td><td class="Element207" valign="top" width="50%">
+Request that a single frame of measurements be gathered on all active devices and sent to all connected data streams.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__getAcqMaxTicks@WORD.html">getAcqMaxTicks</a></td><td class="Element207" valign="top" width="50%">
+Find acquisition time limit in terms of specified device ticks.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__prepareForAcq.html">prepareForAcq</a></td><td class="Element207" valign="top" width="50%">
+Prepare for acquisition.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__getRunningHWConfig.html">getRunningHWConfig</a></td><td class="Element207" valign="top" width="50%">
+Get the address handle of the currently running hardware configuration, or zero if system not started.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__startAcqContinuous.html">startAcqContinuous</a></td><td class="Element207" valign="top" width="50%">
+Begin continuous acquisition and continual streaming of measurements to all connected data stream sockets.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__getServerVersion@Version_.html">getServerVersion</a></td><td class="Element207" valign="top" width="50%">
+Get server version number</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__startAcqContinuousBuffered.html">startAcqContinuousBuffered</a></td><td class="Element207" valign="top" width="50%">
+Begin continuous acquisition with server-side buffering of all incoming data.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__stopAcq.html">stopAcq</a></td><td class="Element207" valign="top" width="50%">
+Stop a continuous or continuous buffered acquistion.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__isAcqInProgress.html">isAcqInProgress</a></td><td class="Element207" valign="top" width="50%">
+Establish whether system is currently in an acquisition mode</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__monitorAcqBuffer.html">monitorAcqBuffer</a></td><td class="Element207" valign="top" width="50%">
+Request the most recent frame of data for monitoring during buffered acquisition.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__getAcqBufferNumPackets@WORD.html">getAcqBufferNumPackets</a></td><td class="Element207" valign="top" width="50%">
+Returns total data packets in the server-side buffer for the specified device during or following a buffered acquisition</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__requestAcqBufferPacket@WORD@DWORD.html">requestAcqBufferPacket</a></td><td class="Element207" valign="top" width="50%">
+Request a specific packet of data from a buffered acquisition for the specified device.</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__setAcqMaxTicks@WORD@DWORD.html">setAcqMaxTicks</a></td><td class="Element207" valign="top" width="50%">
+Set limit on duration of continuous acquisitions</td></tr><tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""> <a href="codaRTNet__RTNetClient__getDeviceTickSeconds@WORD.html">getDeviceTickSeconds</a></td><td class="Element207" valign="top" width="50%">
+Find the number of seconds corresponding to one device tick on the specified device</td></tr></table></div>
+</div>
+</div>
+<div class="Element214">
+Legend</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<table cellspacing="0" cellpadding="3" border="1">
+<tr>
+<td class="Element203" valign="top" width="50%">
+<img src="indicator_method.gif" border="0" alt=""></td><td class="Element207" valign="top" width="50%">
+Method</td></tr></table></div>
+</div>
+</div>
+<div class="Element14">
+Links</div>
+<div class="Element11">
+<div class="Element10">
+<a href="codaRTNet.html">codaRTNet C++ Classes</a>, <a href="_codaRTNet__RTNetClient_14_Members.html">Members</a>, <a href="_codaRTNet__RTNetClient_14_Methods.html">Methods</a>, <a href="_codaRTNet__RTNetClient_17_Class_Hierarchy.html">Class Hierarchy</a></div>
+</div>
+</div><div class="Element93">
+<table class="Element93" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element3">
+Copyright (C) Charnwood Dynamics Ltd 2007-2012. All rights reserved. (Ver. 2.00.05.01)</div>
+</td></tr><tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element4">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td></tr></table></div>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="generator" content="Doc-O-Matic">
+    <link rel="STYLESHEET" href="default.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="scripts.js"></SCRIPT>
+</head>
+<body class="Element57">
+<div class="Element92">
+<table class="Element92" border="0" bgcolor="#99CCFF" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element92" valign="middle" align="left" width="33%">
+<div class="Element1">
+Codamotion RTNet SDK for C++ and Java</div>
+</td><td class="Element92" valign="middle" align="center" width="34%">
+<div class="Element2">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td><td class="Element92" valign="middle" align="right" width="33%">
+<div class="Element90">
+<a href="Getting_Started_(C++).html">Next</a></div>
+</td></tr></table><div class="Element5">
+Overview</div>
+</div>
+<div class="Element58">
+<div class="Element11">
+<div class="Element10">
+<div class="Element15">
+Introduction</div>
+Welcome to the Codamotion RTNet Software Development Kit (SDK) for C++ and Java. This software allows full real-time access to Codamotion 3D measurement systems and supported peripheral devices. To make use of the SDK you must have programming skills in either C++ or Java. For non-programmers, a variety of off-the-shelf software packages are available instead - please see the <a href="http://www.codamotion.com">Codamotion</a> website for more information.<div class="Element15">
+Hardware System Design and Requirements</div>
+A Codamotion system comprises one or more Codamotion movement analysis devices connected to a Codamotion Active Hub or a standard PC (<strong>Host PC</strong>) connected to a Codamotion Mini Hub. The Codamotion RTNet Server must be running on the Active Hub or Host PC. The Codamotion RTNet SDK provides the tools to connect to this server over an ethernet connection. Programs developed using the RTNet SDK are therefore clients to the Codamotion RTNet Server. They can be run either on the Active Hub / Host PC itself, or on another computer connected by ethernet.<div class="Element15">
+Codamotion RTNet Control and Data Flow</div>
+This SDK provides tools to control the RTNet server and retrieve data from it. This SDK achieves control of the Codamotion RTNet Server using the TCP/IP protocol over an ethernet connection. This is used to configure the server and to request realtime data. The part of the SDK required to do this is called the <strong>RTNet Client</strong>. Measurement data itself is received as a UDP stream over an ethernet connection. For this to happen the SDK instantiates a UDP socket on the client computer. The socket and its associated code is known as the <strong>RTNet Data Stream</strong>.<p class="Element10">
+The Codamotion RTNet Server has five main operating states:<p class="Element10">
+<ol class="Element146"><li class="Element147"><strong>Shut down</strong> This is the state which occurs when the server first begins and no hardware configuration has been selected, nor any connected devices have been initialised.<p class="Element10">
+<li class="Element147"><strong>Started</strong> This means that a hardware configuration has been chosen and the relevant devices initialised successfully. Measurement data cannot be generated until the system is in the prepared state.<p class="Element10">
+<li class="Element147"><strong>Prepared</strong> The system has been started and necessary preparations made for data acquisition. In the case of Codamotion CX1 systems this means that diode offset calibration has been performed to provide correct input data. In this state data is not continuously streaming but single frames of measurement data can be requested at any time for monitoring purposes.<p class="Element10">
+<li class="Element147"><strong>Continuous Acquisition</strong> The system has been started, prepared, and is streaming data continously over one or more RTNet Data Streams. None of the measurement data persists on the server once it has been sent across the data streams - it is up to the receiving applications to store it.<p class="Element10">
+<li class="Element147"><strong>Continuous Buffered Acquisition</strong> An alternative to continous acquisition - the system has been started, prepared, and is acquiring data continously. But in this mode the data is not automatically sent over any data stream. Instead data is held in buffers on the server for post-acquisition retrieval. The latest frame in the buffer can be requested by the client at any time to allow real-time monitoring.</ol>
+<p class="Element10">
+The RTNet Client has the necessary control feautres to change from one state to another, and to request measurement data over an RTNet Data Stream as required.<div class="Element15">
+Codamotion RTNet Devices</div>
+The Codamotion system supports a number of peripheral devices and accessories. To provide the flexibility to control and access these different physical devices, the RTNet server comprises one or more software 'devices'. Each type of software device has a unique numeric identifier, known as the <strong>device ID</strong>.<p class="Element10">
+Changes between the different modes described above are applied to all devices simultaneously, but other RTNet client functions may control or request data from a particular specified device.<p class="Element10">
+The device which is common to most configurations is the Codamotion CX1 system device for 3D movement data, though it is possible to have configurations which use only an analog interface such as the GS16AIO and no movement system.<div class="Element15">
+Programming Languages</div>
+To access the RTNet Client and RTNet Data Stream features described above, this SDK provides applications programming inferfaces (API's) in both C++ and Java. Where possible the same naming conventions have been used in both.<p class="Element10">
+This guide provides a <a href="Getting_Started_(C++).html">Getting Started</a> section for the C++ API, and a reference guide for all <a href="codaRTNet.html">C++ SDK Classes</a>. For the equivalent Java API, please see the HTML Java Documentation usually located in <a href="javadocs/index.html">docs/help/javadocs/index.html</a>.<p class="Element10">
+Some of the underlying RTNet client code is written in C rather than C++, and some of these function calls are exposed in the header files. Please note, however, that Charnwood Dynamics will only respond to requests for technical assistance in relation to the documented C++ or Java API's and not the underlying C API.</div>
+</div>
+</div><div class="Element93">
+<table class="Element93" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element3">
+Copyright (C) Charnwood Dynamics Ltd 2007-2012. All rights reserved. (Ver. 2.00.05.01)</div>
+</td></tr><tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element4">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td></tr></table></div>
+</body></html>

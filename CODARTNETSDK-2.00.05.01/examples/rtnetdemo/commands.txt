@@ -1,0 +1,9 @@
+{
+  "StartSystem" : { "config_name" : "Dual CX1 System" },
+  "Alignment" : { "origin": 1, "x0": 1, "x1": 3, "xy0": 1, "xy1": 5, "expected_result": 0, "allow_retry": 1, "allow_cancel": 1 },
+  "CodaMode": { "mode": 200, "decimation": 4, "external_sync": 0 },
+  "CodaPacketMode": { "coord_mode": "combined" },
+  "AcqContinuousBuffered": { "download_title": "buffer download", "monitor_title": "buffer monitor", "frame_counter_device": 1, "frames": 100, "monitor_period": 50 },
+  "AcqContinuous": { "title": "continuous acquisition", "frame_counter_device": 1, "frames": 100 },
+  "AcqSingleShot" : { "title" : "single-shot acquisition" , "num_samples" : 10 , "period" : 100 }
+}
