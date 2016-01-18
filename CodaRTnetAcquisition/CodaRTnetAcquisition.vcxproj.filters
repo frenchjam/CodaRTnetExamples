@@ -34,7 +34,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\CODARTNETSDK-2.00.05.01\lib\codaRTNetProtocol.lib" />
     <Library Include="..\CODARTNETSDK-2.00.05.01\lib\codaRTNetProtocolCPP_VC10SD.lib" />
+    <Library Include="..\CODARTNETSDK-2.00.05.01\lib\codaRTNetProtocol.lib" />
   </ItemGroup>
 </Project>
