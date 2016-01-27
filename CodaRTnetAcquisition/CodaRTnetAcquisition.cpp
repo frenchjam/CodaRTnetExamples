@@ -4,7 +4,26 @@
 
 // A command line program to acquire a time series of CODA data.
 // Can acquire marker positions, analog values or both.
-// The duration and the destination filename can be given on the command line.
+
+// Command line options:
+//  -cx1	CODA Marker data only
+//	-adc	analog data only
+//	-both	marker and analog data in parallel
+//
+//	-confirm	Ask for a key press before exiting
+//	-ip xxx.xxx.xxx.xxx		IP address of the RTnet server
+
+// The duration and the destination filename root can be given on the command line.
+// If the parameter can be read as a floating point number, it is taken as the duration in seconds:
+// 
+//  ###.###					Duration of acquisition
+//
+// Note that acquisition can be terminated early by pressing any key.
+// Otherwise, the parameter is not one of the flags listed above, it is taken as the filename root.
+//
+//  filenameroot
+//
+// The data will be written to filenameroot.mrk and/or filenameroot.adc.
 
 #include "stdafx.h"
 
