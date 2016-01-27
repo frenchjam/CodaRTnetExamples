@@ -14,8 +14,8 @@ using namespace codaRTNet;
 // Include some common static variables.
 #include "../CodaRTnetCommon/CodaRTnetCommon.h"
 
-// Default acquisistion duration is half a second.
-double		acqDuration = 0.5;
+// Default acquisistion duration is 5 seconds.
+double		acqDuration = 5.0;
 
 // By default, do not ask for a keypress to fully exit the program.
 bool		confirmExit = false;

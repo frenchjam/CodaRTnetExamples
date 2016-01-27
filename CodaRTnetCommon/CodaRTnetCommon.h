@@ -33,7 +33,7 @@ float adcRate = 500.0;
 // Hardwire the server IP address and port.
 // There is a way to search for a server, but it takes time.
 // This allows for a very quick connection.
-char serverAddress[] = "192.168.200.133";
+char serverAddress[] = "192.168.200.150";
 //char serverAddress[] = "192.168.1.1";
 //char serverAddress[32] = "172.20.164.7";
 unsigned int serverPort = 10111;

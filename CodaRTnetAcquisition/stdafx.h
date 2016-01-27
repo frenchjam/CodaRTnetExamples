@@ -5,7 +5,7 @@
 
 #pragma once
 
-
+#include "targetver.h"
 
 // TODO: reference additional headers your program requires here
 // Disable warnings about unsafe char routines.
