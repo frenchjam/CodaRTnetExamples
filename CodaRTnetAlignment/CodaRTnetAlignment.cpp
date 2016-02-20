@@ -246,7 +246,7 @@ void perform_alignment( void ) {
 	cl.getDeviceInfo(info);
 
 	// print alignment diagnostics
-	DWORD marker_id_array[5] = { origin, x_negative, x_positive, xy_negative, xy_positive };
+	DWORD marker_id_array[5] = { (DWORD) origin, (DWORD) x_negative, (DWORD) x_positive, (DWORD) xy_negative, (DWORD) xy_positive };
 	print_alignment_status(marker_id_array, info);
 
 	// exit early if alignment failed
