@@ -275,6 +275,33 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	// Show what program is running.	
 	fprintf( stderr, "%s\n\n", argv[0] );
+
+	for ( int arg = 1; arg < argc; arg++ ) {
+
+		if ( !strncmp( argv[arg], "-o", 2 ) ) {
+			arg++;
+			if ( arg < argc ) sscanf( argv[arg], "%d", &origin );
+		}
+		if ( !strcmp( argv[arg], "-xp" ) ) {
+			arg++;
+			if ( arg < argc ) sscanf( argv[arg], "%d", &x_positive );
+		}
+		if ( !strcmp( argv[arg], "-xn" ) ) {
+			arg++;
+			if ( arg < argc ) sscanf( argv[arg], "%d", &x_negative );
+		}
+		if ( !strcmp( argv[arg], "-yp" ) ) {
+			arg++;
+			if ( arg < argc ) sscanf( argv[arg], "%d", &xy_positive );
+		}
+		if ( !strcmp( argv[arg], "-yn" ) ) {
+			arg++;
+			if ( arg < argc ) sscanf( argv[arg], "%d", &xy_negative );
+		}
+	
+	}
+		
+
 	
 	// Unlike the acquisition programs, that use a fixed IP address, 
 	// here we look for a CODA RTnet server using the autodiscover function.

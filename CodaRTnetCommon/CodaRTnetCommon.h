@@ -11,10 +11,10 @@
 //  to be coherent with the number of units.
 #define CX1only		0	
 // A configuration that only does analog acquisions.
-#define ADConly		8
+#define ADConly		1
 // A configuration that does markers and analog acquisitions.
 // See notes above for CX1only about the number of cx1 units.
-#define CX1andADC	4
+#define CX1andADC	2
 // Default is coda marker acquisition only.
 static unsigned int codaConfig = CX1only;
 
@@ -27,13 +27,20 @@ static unsigned int codaConfig = CX1only;
 // Freqencies in Hertz of each acqusition type.
 // They could probably be read in from the Coda Server
 //  but I just set them statically here for now.
-float cx1Rate = 200.0;
+float cx1Rate = 100.0;
 float adcRate = 500.0;
 
 // Hardwire the server IP address and port.
 // There is a way to search for a server, but it takes time.
 // This allows for a very quick connection.
-char serverAddress[] = "192.168.200.150";
+//char serverAddress[] = "192.168.200.150";
+
+// DEX via EPM LAN
+char serverAddress[] = "192.168.200.133";
+
+// DEX via ETD LAN
+//char serverAddress[] = "10.80.12.103";
+
 //char serverAddress[] = "192.168.1.1";
 //char serverAddress[32] = "172.20.164.7";
 unsigned int serverPort = 10111;
@@ -45,7 +52,7 @@ unsigned int serverPort = 10111;
 int maxRetries = 1;
 
 // Determine the acquisition modes.
-DeviceOptionsCodaMode			coda_mode( CODANET_CODA_MODE_200, 1, false );
+DeviceOptionsCodaMode			coda_mode( CODANET_CODA_MODE_100, 1, false );
 DeviceOptionsGS16AIOInputs		analog_mode( adcRate );
 
 // Pick one of the following three options to determine if data from each

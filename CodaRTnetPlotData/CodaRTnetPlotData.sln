@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RTnetPlotData", "CodaRTnetPlotData.vcproj", "{30402255-AD90-433B-A46A-AA5D0279CA88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30402255-AD90-433B-A46A-AA5D0279CA88}.Debug|Win32.ActiveCfg = Debug|Win32
+		{30402255-AD90-433B-A46A-AA5D0279CA88}.Debug|Win32.Build.0 = Debug|Win32
+		{30402255-AD90-433B-A46A-AA5D0279CA88}.Release|Win32.ActiveCfg = Release|Win32
+		{30402255-AD90-433B-A46A-AA5D0279CA88}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

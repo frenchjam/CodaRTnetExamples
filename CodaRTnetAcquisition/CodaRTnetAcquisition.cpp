@@ -65,11 +65,11 @@ int maxDisplayChannels = 32;
 int displayChannels = 2;
 int displayChannelList[32] = { 6,7 };
 
-int maxDisplayMarkers = 28;
+int maxDisplayMarkers = 56;
 int displayMarker = 4;
 
 int maxSaveChannels = 32;
-int maxSaveMarkers = 28;
+int maxSaveMarkers = 56;
 
 //* Generic data packet
 RTNetworkPacket packet;
@@ -171,7 +171,7 @@ void print_network_error(const NetworkException& exNet)
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
-int Acquire( int coda_config, double duration, const char *fileroot ) {
+int Acquire( int coda_config, double duration, const char *mrk_file, const char *adc_file ) {
 
 	bool expect_cx1, expect_adc;
 	int nTimeouts, nChecksumErrors, nUnexpectedPackets, nFailedPackets;
@@ -347,17 +347,15 @@ int Acquire( int coda_config, double duration, const char *fileroot ) {
 	int frame_index;
 
 	if ( expect_cx1 ) {
-		char filename[1024];
 		FILE *fp;
-		sprintf( filename, "%s.mrk", fileroot );
-		if ( !(fp = fopen( filename, "w" )) ) {
+		if ( !(fp = fopen( mrk_file, "w" )) ) {
 			char message[2048];
-			sprintf( message, "Error opening file for writing:\n %s", filename );
+			sprintf( message, "Error opening file for writing:\n %s", mrk_file );
 			MessageBox( NULL, message, "RTnetAcquisition", MB_OK | MB_ICONEXCLAMATION );
 			exit( -1 );
 		}
 		else {
-			fprintf( stderr, "\nFile %s open for writing.", filename );
+			fprintf( stderr, "\nFile %s open for writing.", mrk_file );
 		}
 
 
@@ -444,7 +442,7 @@ int Acquire( int coda_config, double duration, const char *fileroot ) {
 			fprintf( stderr, "\nFlushed Packet: %8d. Count: %8d\n", decode3D.getTick(), nFlushed++ );
 		}
 #endif
-		fprintf( stderr, "\nFile %s closed.\n", filename );
+		fprintf( stderr, "\nFile %s closed.\n", mrk_file );
 		fprintf( stderr, "Frames: %d  Failed Packets: %d  Timeouts: %d  Checksum Errors: %d  Unexpected Packets: %d\n",
 			nFrames, nFailedPackets, nTimeouts, nChecksumErrors, nUnexpectedPackets );
 		if ( nFailedPackets || nTimeouts || nChecksumErrors || nUnexpectedPackets ) {
@@ -460,17 +458,15 @@ int Acquire( int coda_config, double duration, const char *fileroot ) {
 		//*
 		//* Retrieve the stored ADC data.
 		//*
-		char filename[1024];
 		FILE *fp;
-		sprintf( filename, "%s.adc", fileroot );
-		if ( !(fp = fopen( filename, "w" )) ) {
+		if ( !(fp = fopen( adc_file, "w" )) ) {
 			char message[2048];
-			sprintf( message, "Error opening file for writing:\n %s", filename );
+			sprintf( message, "Error opening file for writing:\n %s", adc_file );
 			MessageBox( NULL, message, "RTnetAcquisition", MB_OK | MB_ICONEXCLAMATION );
 			exit( -1 );
 		}
 		else {
-			fprintf( stderr, "\nFile %s open for writing.", filename );
+			fprintf( stderr, "\nFile %s open for writing.", adc_file );
 		}
 
 
@@ -533,7 +529,7 @@ int Acquire( int coda_config, double duration, const char *fileroot ) {
 			if ( !( packetindex % FRAMES_PER_DOT ) ) fprintf( stderr, "." );
 		}
 		fclose( fp );
-		fprintf( stderr, "\nFile %s closed.\n", filename );
+		fprintf( stderr, "\nFile %s closed.\n", adc_file );
 		fprintf( stderr, "Packets: %d  Failed Packets: %d  Timeouts: %d  Checksum Errors: %d  Unexpected Packets: %d\n",
 			nSamples, nFailedPackets, nTimeouts, nChecksumErrors, nUnexpectedPackets );
 		if ( nFailedPackets || nTimeouts || nChecksumErrors || nUnexpectedPackets ) {
@@ -555,6 +551,8 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 	char *fileroot = "RTnetAcquisition";
+	char mrk_file[256];
+	char adc_file[256];
 
 	fprintf( stderr, "%s\n", argv[0] );
 
@@ -564,16 +562,29 @@ int _tmain(int argc, _TCHAR* argv[])
 		else if ( !strcmp( argv[arg], "-cx1" ) ) codaConfig = CX1only;
 		else if ( !strcmp( argv[arg], "-adc" ) ) codaConfig = ADConly;
 		else if ( !strcmp( argv[arg], "-both" ) ) codaConfig = CX1andADC;
-
+		else if ( !strcmp( argv[arg], "-config" ) ) {
+			arg++;
+			if ( arg < argc ) sscanf( argv[arg], "%d", &codaConfig );
+		}
 		else if ( !strcmp( argv[arg], "-ip" ) ) {
 			arg++;
 			if ( arg < argc ) strncpy( serverAddress, argv[arg], sizeof(serverAddress)  );
 		}
 
-		// Argument is either the duration or the filename.
+		// Argument is either the duration or the filename root.
 		else if ( 1 != sscanf( argv[arg], "%lf", &acqDuration ) ) fileroot = argv[arg];
 
 	}
+	// Find the next filename in a series.
+	fprintf( stderr, "\n\n" );
+	for ( int i = 0; i < 1000; i++ ) {
+		sprintf( mrk_file, "%s.%03d.mrk", fileroot, i );
+		sprintf( adc_file, "%s.%03d.adc", fileroot, i );
+		if ( _access( mrk_file, 0 ) != -1 ) fprintf( stderr, "%s exists.\n", mrk_file );
+		if ( _access( adc_file, 0 ) != -1 ) fprintf( stderr, "%s exists.\n", adc_file );
+		if ( _access( mrk_file, 0 ) == -1 && _access( adc_file, 0 ) == -1 ) break;
+	}
+	fprintf( stderr, "\nUsing %s and %s\n\n" , mrk_file, adc_file );
 
 	try {
 
@@ -603,7 +614,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 
 		// Show which configuration we are trying to use.
-		fwprintf( stderr, L"RTnet Configuration: %s\n", configs.config[codaConfig].strName );
+		fwprintf( stderr, L"RTnet Configuration %d: %s\n", codaConfig, configs.config[codaConfig].strName );
 
 		// If system is already started, this does nothing.
 		// Otherwise it will load the specified configuration.
@@ -635,7 +646,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		// ensure socket is up before starting acquisition
 		codanet_sleep(50);
 
-		Acquire( codaConfig, acqDuration, fileroot );
+		Acquire( codaConfig, acqDuration, mrk_file, adc_file );
 
 	}
 	catch(NetworkException& exNet)

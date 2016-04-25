@@ -15,6 +15,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <io.h>
 #include <tchar.h>
 #include <memory.h>
 #include <math.h>
