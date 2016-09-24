@@ -203,3 +203,4 @@ FakesAssemblies/
 *.mrk
 *.adc
 
+*.DS_Store
