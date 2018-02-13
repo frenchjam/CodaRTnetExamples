@@ -57,7 +57,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Debug/CodaRTnetPlotData.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
       <ObjectFileName>.\Debug/</ObjectFileName>
@@ -130,28 +130,26 @@
     <ClCompile Include="CodaRTnetPlotData.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\GLAUX.LIB">
-      <FileType>Document</FileType>
-    </Library>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\GLU32.LIB">
-      <FileType>Document</FileType>
-    </Library>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\glut32.lib">
-      <FileType>Document</FileType>
-    </Library>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\OPENGL32.LIB">
-      <FileType>Document</FileType>
-    </Library>
+    <ProjectReference Include="..\PsyPhy2DGraphics\PsyPhy2dGraphicsLib\PsyPhy2dGraphicsLib.vcxproj">
+      <Project>{415bac9d-f0ef-42c3-88f7-7b1386df49de}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Useful\Useful.vcxproj">
+      <Project>{9dcdabb9-8979-4ef4-9d74-10ed8c1d7a56}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\PsyPhy2dGraphicsLib\PsyPhy2dGraphicsLib.vcxproj">
-      <Project>{415bac9d-f0ef-42c3-88f7-7b1386df49de}</Project>
-      <Private>true</Private>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
-    </ProjectReference>
+    <Library Include="..\Lib\GLAUX.LIB">
+      <FileType>Document</FileType>
+    </Library>
+    <Library Include="..\Lib\GLU32.LIB">
+      <FileType>Document</FileType>
+    </Library>
+    <Library Include="..\Lib\glut32.lib">
+      <FileType>Document</FileType>
+    </Library>
+    <Library Include="..\Lib\OPENGL32.LIB">
+      <FileType>Document</FileType>
+    </Library>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

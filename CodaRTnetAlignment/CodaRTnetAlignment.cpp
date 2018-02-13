@@ -10,22 +10,22 @@ using namespace codaRTNet;
 // Include some common static variables.
 #include "../CodaRTnetCommon/CodaRTnetCommon.h"
 
-// client connection object
-RTNetClient cl;
 
-#if 0
-int origin = 3;
-int x_negative = 3;
-int x_positive = 8;
-int xy_negative = 2;
-int xy_positive = 4;
-#else
+
+// Determine which markers are used to define each axis.
 int origin = 1;
 int x_negative = 1;
 int x_positive = 2;
 int xy_negative = 3;
 int xy_positive = 4;
-#endif
+
+// Use main Codamotion RTNet namespace
+using namespace codaRTNet;
+
+// client connection object
+RTNetClient cl;
+HWConfigEnum configs;
+CODANET_HWCONFIG_DEVICEENABLE devices;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -269,10 +269,6 @@ void perform_alignment( void ) {
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	AutoDiscover	discover;
-	HWConfigEnum	configs;
-	CODANET_HWCONFIG_DEVICEENABLE devices;
-
 	// Show what program is running.	
 	fprintf( stderr, "%s\n\n", argv[0] );
 
@@ -298,46 +294,26 @@ int _tmain(int argc, _TCHAR* argv[])
 			arg++;
 			if ( arg < argc ) sscanf( argv[arg], "%d", &xy_negative );
 		}
+		if ( !strcmp( argv[arg], "-ip" ) ) {
+			arg++;
+			if ( arg < argc ) strncpy( serverAddress, argv[arg], sizeof(serverAddress)  );
+		}
+
 	
 	}
 		
 
-	
-	// Unlike the acquisition programs, that use a fixed IP address, 
-	// here we look for a CODA RTnet server using the autodiscover function.
-	// There is no real reason to do that here. We could use the fixed address.
-	// But I leave it here as an example of what to do.
-	cl.doAutoDiscoverServer(discover);
-
-	// need at least one server to connect to
-	if (discover.dwNumServers == 0)
-	{
-		fprintf(stderr, "ERROR: no servers found using auto-discovery.\n");
-		fprintf( stderr, "Press <RETURN> to continue." );
-		getchar();
-		return 1;
-	}
-
-	// list all servers
-	fprintf(stderr, "Found %u Codamotion Realtime Network servers: \n", discover.dwNumServers);
-	for (DWORD iserver = 0; iserver < discover.dwNumServers; iserver++)
-	{
-		fprintf(stderr, "[%u]: %s IP: %u.%u.%u.%u port: %u\n",
-			iserver,
-			discover.server[iserver].hostname,
-			(discover.server[iserver].ip & 0xFF000000) >> 24,
-			(discover.server[iserver].ip & 0x00FF0000) >> 16,
-			(discover.server[iserver].ip & 0x0000FF00) >>  8,
-			(discover.server[iserver].ip & 0x000000FF)      ,
-			discover.server[iserver].port);
-	}
-
 	try {
-		// connect to first available server
-		cl.connect( discover.server[0].ip, discover.server[0].port );
 
-		// get config list
-		cl.enumerateHWConfig(configs);
+		// Decode the IP address string.
+		unsigned int p, q, r, s;
+		fprintf(stderr, "RTnet Server: %s   Port: %d  Configuration: %d\n", serverAddress, serverPort, codaConfig );
+		sscanf( serverAddress, "%d.%d.%d.%d", &p, &q, &r, &s );
+		// Connect to the server.
+		cl.connect( (p << 24) + (q << 16) + (r << 8) + s, serverPort );
+
+		// Check that the server has at least the expected number of configurations.
+		cl.enumerateHWConfig( configs );
 
 		// print config names
 		fprintf(stderr, "Found %u hardware configurations:\n", configs.dwNumConfig);

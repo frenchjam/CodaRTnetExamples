@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="..\..\CodaRTnet.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Trackers.h" />
+    <ClInclude Include="CodaRTnetTracker.h" />
+    <ClInclude Include="MouseTracker.h" />
+    <ClInclude Include="PoseTrackers.h" />
+    <ClInclude Include="CascadePoseTracker.h" />
+    <ClInclude Include="CodaPoseTracker.h" />
+    <ClInclude Include="PoseTrackerFilter.h" />
+    <ClInclude Include="CodaRTnetDaemonTracker.h" />
+    <ClInclude Include="CodaRTnetContinuousTracker.h" />
+    <ClInclude Include="CodaRTnetNullTracker.h" />
+    <ClInclude Include="OculusRemotePoseTracker.h" />
+    <ClInclude Include="NullPoseTracker.h" />
+    <ClInclude Include="CodaLegacyContinuousTracker.h" />
+    <ClInclude Include="CodaLegacyPolledTracker.h" />
+    <ClInclude Include="WindowsMousePoseTrackers.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Trackers.cpp" />
+    <ClCompile Include="PoseTrackers.cpp" />
+    <ClCompile Include="CodaRTnetTracker.cpp" />
+    <ClCompile Include="CodaPoseTracker.cpp" />
+    <ClCompile Include="CascadePoseTracker.cpp" />
+    <ClCompile Include="PoseTrackerFilter.cpp" />
+    <ClCompile Include="CodaRTnetDaemonTracker.cpp" />
+    <ClCompile Include="CodaRTnetContinuousTracker.cpp" />
+    <ClCompile Include="CodaRTnetNullTracker.cpp" />
+    <ClCompile Include="OculusRemotePoseTracker.cpp" />
+    <ClCompile Include="NullPoseTracker.cpp" />
+    <ClCompile Include="CodaLegacyContinuousTracker.cpp" />
+    <ClCompile Include="CodaLegacyPolledTracker.cpp" />
+    <ClCompile Include="WindowsMousePoseTrackers.cpp" />
+  </ItemGroup>
+</Project>

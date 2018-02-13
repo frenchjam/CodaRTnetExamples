@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Getting Started (C++)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="generator" content="Doc-O-Matic">
+    <link rel="STYLESHEET" href="default.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="scripts.js"></SCRIPT>
+</head>
+<body class="Element57">
+<div class="Element92">
+<table class="Element92" border="0" bgcolor="#99CCFF" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element92" valign="middle" align="left" width="33%">
+<div class="Element1">
+Codamotion RTNet SDK for C++ and Java</div>
+</td><td class="Element92" valign="middle" align="center" width="34%">
+<div class="Element2">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td><td class="Element92" valign="middle" align="right" width="33%">
+<div class="Element90">
+<a href="Overview.html">Previous</a> | <a href="Examples.html">Next</a></div>
+</td></tr></table><div class="Element5">
+Getting Started (C++)</div>
+</div>
+<div class="Element58">
+<div class="Element11">
+<div class="Element10">
+<div class="Element15">
+Background</div>
+The SDK was designed for use with Microsoft Visual Studio 6 or Microsoft Visual C++ 7 (Microsoft Visual Studio .NET 2003). The core functions are included in a dynamic-link library, <tt>bin\codaRTNetProtocol.dll</tt>. A static C++ library provides C++ wrapper classes to access this DLL.<p class="Element10">
+For use with other compilers, see the section below on Rebuilding the C++ Library. For use with Java, see the Java documentation (javadoc format) in <a href="javadocs/index.html">docs/help/javadocs/index.html</a><div class="Element15">
+Creating a New Project</div>
+Use visual studio to create a new C++ project. For your first program it is usual to create a console application so that you can use the standard library functions (<tt>printf</tt> etc.) to print diagnostic output. Ensure that the Runtime Library is set to Multithreaded (or Multithreaded Debug), and that Runtime Type Information is enabled.<p class="Element10">
+Ensure that the RTNet <tt>lib</tt> folder is on the library path and the <tt>include</tt> folder is on the include path.<p class="Element10">
+Your project must link to the core protocol library codaRTNetProtocol.lib which corresponds to the RTNet DLL file. It must also link to the correct version of the C++ static library. The different versions available in the <tt>lib</tt> directory are given below: <div class="Element63">
+<table cellspacing="0" cellpadding="3" border="1">
+<tr>
+<td class="Element66" valign="top" width="47%">
+Filename</td><td class="Element66" valign="top" width="15%">
+Visual Studio Version</td><td class="Element66" valign="top" width="39%">
+Runtime Library</td></tr><tr>
+<td class="Element68" valign="top" width="47%">
+<tt>codaRTNetProtocolCPP_VC7SR.lib</tt></td><td class="Element68" valign="top" width="15%">
+.NET 2003</td><td class="Element68" valign="top" width="39%">
+Multi-threaded (/MT)</td></tr><tr>
+<td class="Element68" valign="top" width="47%">
+<tt>codaRTNetProtocolCPP_VC7SD.lib</tt></td><td class="Element68" valign="top" width="15%">
+.NET 2003</td><td class="Element68" valign="top" width="39%">
+Multi-threaded Debug (/MTd)</td></tr><tr>
+<td class="Element68" valign="top" width="47%">
+<tt>codaRTNetProtocolCPP_VS6SR.lib</tt></td><td class="Element68" valign="top" width="15%">
+6</td><td class="Element68" valign="top" width="39%">
+Multithreaded (/MT)</td></tr><tr>
+<td class="Element68" valign="top" width="47%">
+<tt>codaRTNetProtocolCPP_VS6SD.lib</tt></td><td class="Element68" valign="top" width="15%">
+6</td><td class="Element68" valign="top" width="39%">
+Debug Multithreaded (/MTd)</td></tr></table></div>
+<p class="Element10">
+If you wish to use a different compiler or a different version of the C Runtime library, you will need to build your own version of the codaRTNetProtocolCPP library. See the section on Rebuilding the C++ library below.<p class="Element10">
+<strong>Writing a Program to Use the SDK</strong><p class="Element10">
+A typical program contains the following steps:<p class="Element10">
+<ol class="Element146"><li class="Element147">Use the <a href="codaRTNet__RTNetClient__doAutoDiscoverServer@AutoDiscover_.html">RTNetClient::doAutoDiscoverServer</a> feature to find available RTNet servers on the netork. Usually there is just one server available, but if more than one you may wish to give the user a choice of which to connect to.<p class="Element10">
+<li class="Element147">Use <a href="codaRTNet__RTNetClient__connect@unsigned_long@unsigned_short.html">RTNetClient::connect</a> to a server found in the first step.<p class="Element10">
+<li class="Element147">(Optional) Use <a href="codaRTNet__RTNetClient__stopSystem.html">RTNetClient::stopSystem</a> and <a href="codaRTNet__RTNetClient__startSystem@DWORD.html">RTNetClient::startSystem</a> to stop and restart the system with a specific hardware configuration.<p class="Element10">
+<li class="Element147">Prepare the system for acquisition using <a href="codaRTNet__RTNetClient__prepareForAcq.html">RTNetClient::prepareForAcq</a><p class="Element10">
+<li class="Element147">Create one or more data streams using <a href="codaRTNet__RTNetClient__createDataStream@DataStream_@__WORD.html">RTNetClient::createDataStream</a> and a <a href="codaRTNet__DataStream.html">DataStream</a> object.<p class="Element10">
+<li class="Element147">Ask the server to acquire data using one or more of the following RTNetClient methods: <a href="codaRTNet__RTNetClient__doSingleShotAcq.html">doSingleShotAcq</a>, <a href="codaRTNet__RTNetClient__startAcqContinuous.html">startAcqContinuous</a>, <a href="codaRTNet__RTNetClient__startAcqContinuousBuffered.html">startAcqContinuousBuffered</a>, <a href="codaRTNet__RTNetClient__monitorAcqBuffer.html">monitorAcqBuffer</a>.<p class="Element10">
+<li class="Element147">Receive data on the <a href="codaRTNet__DataStream.html">DataStream</a> object using <a href="codaRTNet__RTNetworkPacket.html">RTNetworkPacket</a> objects, and decode the data using a class derived from <a href="codaRTNet__PacketDecode.html">PacketDecode</a> (such as <a href="codaRTNet__PacketDecode3DResultExt.html">PacketDecode3DResultExt</a> or <a href="codaRTNet__PacketDecodeADC16.html">PacketDecodeADC16</a>) ; then display or store the data in some way.</ol>
+<p class="Element10">
+The example program <a href="../examples/runtext/runtext.cpp">examples/runtext/runtext.cpp</a> shows each of these steps.<div class="Element15">
+Rebuilding the C++ Library</div>
+You will need to perform your own build of the C++ library (codaRTNetProtocolCPP) if you wish to use an alternative compiler or a C Runtime Library which is not listed in the table above. Source code is included in the <tt>source</tt> directory.<p class="Element10">
+To perform your own build, simply add all the C++ files (<tt>*.cpp</tt>) from <tt>source/codaRTNetProtocolCPP</tt> to your project or Makefile. Header (<tt>*.h</tt>) files from the <tt>source/codaRTNetProtocol</tt> and <tt>source/codaRTNetProtocolCPP</tt> folders are referenced in those C++ (<tt>*.cpp</tt>) files. Example project files for Visual Studio 6 and Visual Studio .NET 2003 are included.</div>
+</div>
+</div><div class="Element93">
+<table class="Element93" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element3">
+Copyright (C) Charnwood Dynamics Ltd 2007-2012. All rights reserved. (Ver. 2.00.05.01)</div>
+</td></tr><tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element4">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td></tr></table></div>
+</body></html>

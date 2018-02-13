@@ -54,7 +54,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>../../CodaRTnetSDK/lib/CodaRTNetProtocol.lib;../../CodaRTnetSDK/lib/codaRTNetProtocolCPP_VC10SD.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\CodaRTnetSDK\lib\CodaRTNetProtocol.lib;..\CodaRTnetSDK\lib\codaRTNetProtocolCPP_VC10SD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

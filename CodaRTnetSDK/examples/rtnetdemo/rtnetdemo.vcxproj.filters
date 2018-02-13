@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{1ea4c047-c8e4-4ff6-aec6-54fbd169e8e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Framework">
+      <UniqueIdentifier>{c4feafd3-4c99-4894-9528-7e9c1a1eecb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Framework\Command">
+      <UniqueIdentifier>{5bfbbeb2-2464-4f92-ad5f-f61513e6fc13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Framework\IO">
+      <UniqueIdentifier>{09ccdabc-ebcf-4f13-9aab-497be4e7041c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Framework\Tests">
+      <UniqueIdentifier>{f58b7ae7-d557-43c8-a61e-264ce104dd2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AcqContinuous.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="StartSystem.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="AcqContinuousBuffered.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="AcqSingleShot.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Alignment.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="CodaMode.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandRTNet.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandRTNetData.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\CommandLineOptions.h">
+      <Filter>Source\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\ResultLog.h">
+      <Filter>Source\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\TracedException.h">
+      <Filter>Source\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Command\Command.h">
+      <Filter>Source\Framework\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Command\CommandFactory.h">
+      <Filter>Source\Framework\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Command\CommandList.h">
+      <Filter>Source\Framework\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Command\Parameter.h">
+      <Filter>Source\Framework\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Command\ParameterInteger.h">
+      <Filter>Source\Framework\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Command\ParameterString.h">
+      <Filter>Source\Framework\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\IO\CommandListReader.h">
+      <Filter>Source\Framework\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\IO\DataWriter.h">
+      <Filter>Source\Framework\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\IO\TextReader.h">
+      <Filter>Source\Framework\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Tests\SelfTest.h">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\IO\DataReader.h">
+      <Filter>Source\Framework\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="RTNetDemoOptions.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Tests\SelfTestMacros.h">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Tests\SelfTestScripts.h">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Tests\SelfTestDataReader.h">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Tests\SelfTestDataWriter.h">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Tests\SelfTestCommandLine.h">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="CodaPacketMode.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AcqContinuous.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StartSystem.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AcqContinuousBuffered.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AcqSingleShot.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Alignment.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CodaMode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandRTNet.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandRTNetData.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RTNetDemo.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\CommandLineOptions.cpp">
+      <Filter>Source\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\ResultLog.cpp">
+      <Filter>Source\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\TracedException.cpp">
+      <Filter>Source\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Command\Command.cpp">
+      <Filter>Source\Framework\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Command\CommandFactory.cpp">
+      <Filter>Source\Framework\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Command\CommandList.cpp">
+      <Filter>Source\Framework\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Command\Parameter.cpp">
+      <Filter>Source\Framework\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Command\ParameterInteger.cpp">
+      <Filter>Source\Framework\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Command\ParameterString.cpp">
+      <Filter>Source\Framework\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\IO\CommandListReader.cpp">
+      <Filter>Source\Framework\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\IO\DataWriter.cpp">
+      <Filter>Source\Framework\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\IO\TextReader.cpp">
+      <Filter>Source\Framework\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Tests\SelfTest.cpp">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\IO\DataReader.cpp">
+      <Filter>Source\Framework\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="RTNetDemoOptions.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Tests\SelfTestMacros.cpp">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Tests\SelfTestScripts.cpp">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Tests\SelfTestDataReader.cpp">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Tests\SelfTestDataWriter.cpp">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Tests\SelfTestCommandLine.cpp">
+      <Filter>Source\Framework\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="CodaPacketMode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="commands.txt" />
+  </ItemGroup>
+</Project>

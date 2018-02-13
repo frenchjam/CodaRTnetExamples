@@ -6,9 +6,10 @@
 // Can acquire marker positions, analog values or both.
 
 // Command line options:
-//  -cx1	CODA Marker data only
-//	-adc	analog data only
-//	-both	marker and analog data in parallel
+//  -cx1		CODA Marker data only (CX1only)
+//	-adc		analog data only (ADConly)
+//	-both		marker and analog data in parallel (CX1andADC)
+//  -config n	select a configuration other than CX1only, ADConly or CX!andADC
 //
 //	-confirm	Ask for a key press before exiting
 //	-ip xxx.xxx.xxx.xxx		IP address of the RTnet server
@@ -19,11 +20,13 @@
 //  ###.###					Duration of acquisition
 //
 // Note that acquisition can be terminated early by pressing any key.
-// Otherwise, the parameter is not one of the flags listed above, it is taken as the filename root.
+// Otherwise, if the parameter is not one of the flags listed above and is not a float, it is taken as the filename root.
 //
 //  filenameroot
 //
-// The data will be written to filenameroot.mrk and/or filenameroot.adc.
+// The data will be written to filenameroot.###.mrk and/or filenameroot.###.adc, 
+// where ### is a 3 digit number that increments automatically if a given file exists already.
+
 
 #include "stdafx.h"
 
@@ -82,7 +85,6 @@ PacketDecode3DResultExt		decode3D;	// 3D measurements (CX1)
 PacketDecodeADC16			decodeADC;	// 16-bit ADC measurements (GS16AIO)
 
 // Various objects
-AutoDiscover discover;
 HWConfigEnum configs;
 CODANET_HWCONFIG_DEVICEENABLE devices;
 DataStream stream;
@@ -92,6 +94,7 @@ DataStream stream;
 // RTnet Helper Routines
 
 // These were extracted from an example program provided by Coda Motion.
+// They provide a means to display information coming back from the CODA system.
 
 // print_devicestatusarray_errors
 // Helper function to print device errors (server-side errors)
@@ -111,7 +114,7 @@ void print_devicestatusarray_errors(const DeviceStatusArray& array)
 }
 
 // print_network_error
-// Helper function to network errors (client-side errors)
+// Helper function to report network errors (client-side errors)
 // @param exNet Network exception object thrown from RTNetClient or DataStream
 void print_network_error(const NetworkException& exNet)
 {
@@ -170,6 +173,21 @@ void print_network_error(const NetworkException& exNet)
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
+
+// Acquire a time series of data from the CODA system.
+//
+// Inputs:
+//  coda_config		The CODA hub maintains a set of different hardware configurations, 
+//					numbered from 0 on. Each configuration specifies the hardware (i.e.
+//					how many CODAs, analog or not, and the frequency of each. This parameter
+//					simply selects which of the stored configurations is used.
+//					See CodaRTnetCommon.h for more information.
+//  duration		Duration of the acquisition, in seconds.
+//
+// Outputs:
+//  mrk_file		Path and filename to store marker data.
+//  adc_file		Path and filename to store analog data.
+
 
 int Acquire( int coda_config, double duration, const char *mrk_file, const char *adc_file ) {
 

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>CODANET_DEVICESTATUS_ARRAY</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="generator" content="Doc-O-Matic">
+    <link rel="STYLESHEET" href="default.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="scripts.js"></SCRIPT>
+</head>
+<body class="Element57">
+<div class="Element92">
+<table class="Element92" border="0" bgcolor="#99CCFF" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element92" valign="middle" align="left" width="33%">
+<div class="Element1">
+Codamotion RTNet SDK for C++ and Java</div>
+</td><td class="Element92" valign="middle" align="center" width="34%">
+<div class="Element2">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td><td class="Element92" valign="middle" align="right" width="33%">
+<div class="Element90">
+<a href="!!RECORDS.html">Up</a> | <a href="CODANET_DEVICESTATUS.html">Previous</a> | <a href="CODANET_HWCONFIG_DEVICEENABLE.html">Next</a></div>
+</td></tr></table><div class="Element5">
+CODANET_DEVICESTATUS_ARRAY</div>
+<div class="Element7">
+<a href="!!RECORDS.html">Structs</a></div>
+</div>
+<div class="Element58">
+<div class="Element11">
+<div class="Element10">
+Represents RTNet server-side error state on one or more devices.</div>
+</div>
+<div class="Element101">
+<div class="Element100">
+<pre class="Element100"><strong>struct</strong> CODANET_DEVICESTATUS_ARRAY {
+  <a href="DWORD.html">DWORD</a> numstatus;
+  <strong>struct</strong> <a href="CODANET_DEVICESTATUS.html">CODANET_DEVICESTATUS</a> status[<a href="CODANET_DEVICESTATUS_MAXITEMS.html">CODANET_DEVICESTATUS_MAXITEMS</a>];
+};</pre></div>
+</div>
+<div class="Element14">
+File</div>
+<div class="Element11">
+<div class="Element10">
+codartprotocol.h</div>
+</div>
+<div class="Element274">
+Members</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element272">
+<table cellspacing="0" cellpadding="3" border="1">
+<tr>
+<td class="Element261" valign="top" width="50%">
+Members</td><td class="Element265" valign="top" width="50%">
+Description</td></tr><tr>
+<td class="Element263" valign="top" width="50%">
+DWORD numstatus;</td><td class="Element267" valign="top" width="50%">
+The number of error codes contained in this object, or zero if no error codes were generated</td></tr><tr>
+<td class="Element263" valign="top" width="50%">
+struct CODANET_DEVICESTATUS status[CODANET_DEVICESTATUS_MAXITEMS];</td><td class="Element267" valign="top" width="50%">
+Array of <a href="CODANET_DEVICESTATUS.html">CODANET_DEVICESTATUS</a> objects. The number of these which contain any valid information is determined by the numstatus value.</td></tr></table></div>
+</div>
+</div>
+<div class="Element14">
+Description</div>
+<div class="Element11">
+<div class="Element10">
+A structure of this type is retrieved from the server after every interaction between server and client. It is possible for a single interaction to generate more than one error - for example an attempted system start may fail on more than one device. This structure therefore provides for an array of error information in the form of multiple <a href="CODANET_DEVICESTATUS.html">CODANET_DEVICESTATUS</a> structures.</div>
+</div>
+<div class="Element214">
+Group</div>
+<div class="Element11">
+<div class="Element10">
+<a href="!!RECORDS.html">Structs</a></div>
+</div>
+<div class="Element14">
+Links</div>
+<div class="Element11">
+<div class="Element10">
+<a href="!!RECORDS.html">Structs</a></div>
+</div>
+</div><div class="Element93">
+<table class="Element93" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element3">
+Copyright (C) Charnwood Dynamics Ltd 2007-2012. All rights reserved. (Ver. 2.00.05.01)</div>
+</td></tr><tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element4">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td></tr></table></div>
+</body></html>

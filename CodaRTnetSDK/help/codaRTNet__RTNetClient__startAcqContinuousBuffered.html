@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>RTNetClient::startAcqContinuousBuffered</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="generator" content="Doc-O-Matic">
+    <link rel="STYLESHEET" href="default.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="scripts.js"></SCRIPT>
+</head>
+<body class="Element57">
+<div class="Element92">
+<table class="Element92" border="0" bgcolor="#99CCFF" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element92" valign="middle" align="left" width="33%">
+<div class="Element1">
+Codamotion RTNet SDK for C++ and Java</div>
+</td><td class="Element92" valign="middle" align="center" width="34%">
+<div class="Element2">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td><td class="Element92" valign="middle" align="right" width="33%">
+<div class="Element90">
+<a href="codaRTNet__RTNetClient.html">Up</a> | <a href="codaRTNet__RTNetClient__getServerVersion@Version_.html">Previous</a> | <a href="codaRTNet__RTNetClient__stopAcq.html">Next</a></div>
+</td></tr></table><div class="Element5">
+RTNetClient::startAcqContinuousBuffered</div>
+<div class="Element7">
+<a href="codaRTNet__RTNetClient.html">RTNetClient</a></div>
+</div>
+<div class="Element58">
+<div class="Element11">
+<div class="Element10">
+Begin continuous acquisition with server-side buffering of all incoming data.</div>
+</div>
+<div class="Element101">
+<div class="Element100">
+<pre class="Element100"><strong>void</strong> startAcqContinuousBuffered() <strong>throw</strong>(<a href="codaRTNet__NetworkException.html">NetworkException</a>, <a href="codaRTNet__DeviceStatusArray.html">DeviceStatusArray</a>);</pre></div>
+</div>
+<div class="Element14">
+Description</div>
+<div class="Element11">
+<div class="Element10">
+Puts the system into continuous buffered acquisition mode. This will only succeed if the system has been started (using <a href="codaRTNet__RTNetClient__startSystem@DWORD.html">startSystem</a>) and prepared for acquisition (using <a href="codaRTNet__RTNetClient__prepareForAcq.html">prepareForAcq</a>). Data will be acquired continuously until either <a href="codaRTNet__RTNetClient__stopAcq.html">stopAcq</a> is called or the limit set by <a href="codaRTNet__RTNetClient__setAcqMaxTicks@WORD@DWORD.html">setAcqMaxTicks</a> is reached. All acquired data from all enabled devices is stored on the server (or stored in on-board memory on connected devices) for later retrieval using <a href="codaRTNet__RTNetClient__requestAcqBufferPacket@WORD@DWORD.html">requestAcqBufferPacket</a>. To determine the total number of packets available, use <a href="codaRTNet__RTNetClient__getAcqBufferNumPackets@WORD.html">getAcqBufferNumPackets</a>. During continuous buffered acquisition, the most recent available frame of data can be retrieved by calling <a href="codaRTNet__RTNetClient__monitorAcqBuffer.html">monitorAcqBuffer</a>. This allows a buffered acquisition to be monitored in realtime.<p class="Element10">
+Following end of acquistion (using <a href="codaRTNet__RTNetClient__stopAcq.html">stopAcq</a> or when max frames has been reached), buffered data persists until the next acquisition function is called (one of <a href="codaRTNet__RTNetClient__prepareForAcq.html">prepareForAcq</a>, <a href="codaRTNet__RTNetClient__doSingleShotAcq.html">doSingleShotAcq</a>, <a href="codaRTNet__RTNetClient__startAcqContinuous.html">startAcqContinuous</a>, or startAcqContinuousBuffered), or until the system is stopped using <a href="codaRTNet__RTNetClient__stopSystem.html">stopSystem</a>.</div>
+</div>
+<div class="Element14">
+Exceptions</div>
+<div class="Element11">
+<div class="Element10">
+<a href="codaRTNet__NetworkException.html">NetworkException</a>, <a href="codaRTNet__DeviceStatusArray.html">DeviceStatusArray</a></div>
+</div>
+<div class="Element214">
+Class</div>
+<div class="Element11">
+<div class="Element10">
+<a href="codaRTNet__RTNetClient.html">RTNetClient</a></div>
+</div>
+<div class="Element14">
+Links</div>
+<div class="Element11">
+<div class="Element10">
+<a href="codaRTNet__RTNetClient.html">RTNetClient</a></div>
+</div>
+</div><div class="Element93">
+<table class="Element93" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element3">
+Copyright (C) Charnwood Dynamics Ltd 2007-2012. All rights reserved. (Ver. 2.00.05.01)</div>
+</td></tr><tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element4">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td></tr></table></div>
+</body></html>

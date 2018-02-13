@@ -9,7 +9,7 @@
 /*
 *	Test the 2D Graphics Views and Displays systems.
 */
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -17,11 +17,11 @@
 #include <windows.h>
 #include <commdlg.h>
 
-#include "../../GripMMI/GripMMI (Visual C++ 2010 Express)/PsyPhy2dGraphicsLib/OglDisplay.h"
-#include "../../GripMMI/GripMMI (Visual C++ 2010 Express)/PsyPhy2dGraphicsLib/Graphics.h"
-#include "../../GripMMI/GripMMI (Visual C++ 2010 Express)/PsyPhy2dGraphicsLib/Displays.h"
-#include "../../GripMMI/GripMMI (Visual C++ 2010 Express)/PsyPhy2dGraphicsLib/Views.h"
-#include "../../GripMMI/GripMMI (Visual C++ 2010 Express)/PsyPhy2dGraphicsLib/Layouts.h"
+#include "../PsyPhy2DGraphics/PsyPhy2dGraphicsLib/OglDisplay.h"
+#include "../PsyPhy2DGraphics/PsyPhy2dGraphicsLib/Graphics.h"
+#include "../PsyPhy2DGraphics/PsyPhy2dGraphicsLib/Displays.h"
+#include "../PsyPhy2DGraphics/PsyPhy2dGraphicsLib/Views.h"
+#include "../PsyPhy2DGraphics/PsyPhy2dGraphicsLib/Layouts.h"
 
 //#include <2dMatrix.h>
 //#include <Regression.h>
@@ -101,8 +101,6 @@ int main ( int argc, char *argv[] ) {
 
 	int frames = 0;
 	int mrk;
-
-	int bytes;
 
 	if ( strlen( fileroot ) == 0 ) {
 		OPENFILENAME ofn;

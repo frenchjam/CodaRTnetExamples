@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>DeviceOptionsGS16AIOInputs::DeviceOptionsGS16AIOInputs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="generator" content="Doc-O-Matic">
+    <link rel="STYLESHEET" href="default.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="scripts.js"></SCRIPT>
+</head>
+<body class="Element57">
+<div class="Element92">
+<table class="Element92" border="0" bgcolor="#99CCFF" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element92" valign="middle" align="left" width="33%">
+<div class="Element1">
+Codamotion RTNet SDK for C++ and Java</div>
+</td><td class="Element92" valign="middle" align="center" width="34%">
+<div class="Element2">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td><td class="Element92" valign="middle" align="right" width="33%">
+<div class="Element90">
+<a href="codaRTNet__DeviceOptionsGS16AIOInputs.html">Up</a> | <a href="codaRTNet__DeviceOptionsGS16AIOInputs__opt.html">Previous</a></div>
+</td></tr></table><div class="Element5">
+DeviceOptionsGS16AIOInputs::DeviceOptionsGS16AIOInputs</div>
+<div class="Element7">
+<a href="codaRTNet__DeviceOptionsGS16AIOInputs.html">DeviceOptionsGS16AIOInputs</a></div>
+</div>
+<div class="Element58">
+<div class="Element11">
+<div class="Element10">
+Construct with the specified sample rate on all channels.</div>
+</div>
+<div class="Element101">
+<div class="Element100">
+<pre class="Element100">DeviceOptionsGS16AIOInputs(<strong>float</strong> fBaseRateHz);</pre></div>
+</div>
+<div class="Element14">
+Description</div>
+<div class="Element11">
+<div class="Element10">
+Constructed like this, all GS16AIO channels will have the same sample rate once this object is passed to <a href="codaRTNet__RTNetClient__setDeviceOptions@DeviceOptions_.html">RTNetClient::setDeviceOptions</a>. To apply lower sample rates for certain channels, a decimation factor can be applied. Use the opt.channel_decimation member to set individual channel decimation factors relative to the base rate.<p class="Element10">
+The actual base sample rate used will be the nearest whole divisor of the GS16AIO hardware clock rate which is 24MHz.<p class="Element10">
+The GS16AIO device sends measurement data as ADC16 packets for receipt by the <a href="codaRTNet__DataStream__receivePacket@RTNetworkPacket_@DWORD.html">DataStream::receivePacket</a> method and decoding by <a href="codaRTNet__PacketDecodeADC16.html">PacketDecodeADC16</a>. When decimation is applied, a decimated channel will be absent from all packets whose tick value is not a whole multiple of the decimation value. The received packet tick number must be checked to determine which channels are present.<p class="Element10">
+@params fBaseRateHz The base sample rate for all channels, in Hertz.</div>
+</div>
+<div class="Element214">
+Class</div>
+<div class="Element11">
+<div class="Element10">
+<a href="codaRTNet__DeviceOptionsGS16AIOInputs.html">DeviceOptionsGS16AIOInputs</a></div>
+</div>
+<div class="Element14">
+Links</div>
+<div class="Element11">
+<div class="Element10">
+<a href="codaRTNet__DeviceOptionsGS16AIOInputs.html">DeviceOptionsGS16AIOInputs</a></div>
+</div>
+</div><div class="Element93">
+<table class="Element93" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element3">
+Copyright (C) Charnwood Dynamics Ltd 2007-2012. All rights reserved. (Ver. 2.00.05.01)</div>
+</td></tr><tr><td class="Element93" valign="middle" align="center" width="100%">
+<div class="Element4">
+<a href="contents.html">Contents</a> | <a href="idx.html">Index</a></div>
+</td></tr></table></div>
+</body></html>

@@ -1,25 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Libraries">
-      <UniqueIdentifier>{f39e15c3-1f47-4733-bae3-c099984920ce}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="CodaRTnetPlotData.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\GLAUX.LIB">
-      <Filter>Libraries</Filter>
-    </Library>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\OPENGL32.LIB">
-      <Filter>Libraries</Filter>
-    </Library>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\GLU32.LIB">
-      <Filter>Libraries</Filter>
-    </Library>
-    <Library Include="..\..\GripMMI\GripMMI (Visual C++ 2010 Express)\lib\glut32.lib">
-      <Filter>Libraries</Filter>
-    </Library>
+    <Library Include="..\Lib\GLAUX.LIB" />
+    <Library Include="..\Lib\OPENGL32.LIB" />
+    <Library Include="..\Lib\GLU32.LIB" />
+    <Library Include="..\Lib\glut32.lib" />
   </ItemGroup>
 </Project>
